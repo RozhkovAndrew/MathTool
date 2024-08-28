@@ -1,0 +1,68 @@
+body {
+    background-color: #d7c9fb;
+    opacity: 0.99;
+}
+h1 {
+    font-size: 24px;
+    padding: 20px;
+    color: black;
+    text-align: center;
+}
+textarea {
+    background: #f6f7f8;
+    font-size: 16px;
+    width: 320px;
+    height: 180px;
+    resize: none;
+    border: 2px solid #a52a2a;
+}
+input {
+    font-size: 20px;
+    border: 1px solid #6a1569;
+}
+table {
+    font-size: 22px;
+    margin: auto;   
+}
+td {
+    padding: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+#c21 {
+    background-color: #86c8db;
+}
+#c22 {
+    background-color: #5abebc;
+}
+#c41 {
+    background-color: #6bb3c3;
+}
+#c42 {
+    background-color: #86c8db;
+    vertical-align: top;
+}
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */ 
+}
+[data-tooltip]::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    width: 370px; /* Ширина подсказки */
+    left: 0; top: 0; /* Положение подсказки */
+    background: #3d5d78; /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
+} 
+[data-tooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: 2em; /* Положение подсказки */
+}
+div {
+    font-size: 18px;
+    text-align: end;
+}

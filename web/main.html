@@ -1,0 +1,102 @@
+<head>
+    <meta charset="UTF-8">
+    <!-- добавляем название окна программы -->
+    <title>Math-Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+
+      eel.expose(get_Reduct);
+      eel.expose(get_Xroots);
+      eel.expose(get_root);
+      eel.expose(get_fraction); // Expose this function to Python
+      
+      function get_fraction(x,y) {
+        resNumTxt.value=x;
+        resDenTxt.value=y;
+      }
+      function get_root(a,b) {
+        foolPartTxt.value=a;
+        rootPartTxt.value=b;
+      }
+      function get_Xroots(a) {
+        xTxt.value=a;
+      }
+      function get_Reduct(num,den) {
+        nuTxt.value=num;
+        denTxt.value=den;
+      }
+    </script>
+</head>
+<body>
+<!-- выводим текст -->
+    <h1>Набор математических инструментов</h1>
+    <table>
+      <tr>
+        <th id="c11" data-tooltip="Преобразует десятичную дробь в обычную, нахождением Числителя и Знаменателя. Использовать положительные значения. Примеры: 2.15 , 0.(12), 0.123(56 ">Преобразование дробей (?)</th>
+        <th id="c12" data-tooltip="Извлекает рациональную часть из заданного корня. Использовать только целые числа. Если в ответе j, то решений нет в действительных числах (R)">Извлечение корня &#8730 (?)</th>
+      </tr>
+      <tr>
+        <td id="c21">
+        <form>
+          <p>Десятичная дробь:<br>
+          <input id="decimTxt" type="text" size="30" maxlength="10" value="0.12(45)">
+          </p>
+          <input type="button" value="Преобразовать дробь" style="background-color: #f6dd85; border: 1px solid #7f8182;" onclick="eel.transform_fraction(decimTxt.value)">
+          <p>Числитель дроби<br>
+            <input id="resNumTxt" type="text" size="30" readonly="True" style="border: 2px solid #a52a2a;">
+          </p>
+          <p>Знаменатель дроби<br>
+            <input id="resDenTxt" type="text" size="30" readonly="True" style="border: 2px solid #a52a2a;">
+          </p>
+        </form>
+      </td>
+      <td id="c22">
+        <form>
+          <p>  Степень корня <br><input id="degRootTxt" type="number" size="30" value="2"></p>
+          <p>  Подкоренное число<br><input id="numTxt" type="number" size="40" value="32"></p>
+          <input type="button" value="Выделить рац часть из корня" style="background-color: #f6dd85; border: 1px solid #7f8182;" onclick="eel.transform_root(numTxt.value,degRootTxt.value)">
+          <p>  Целая часть &#8730 Подкоренная часть<br>
+            <input id="foolPartTxt" type="text" size="10" readonly="True" style="text-align: end; border: 2px solid #a52a2a;"> &#8730 
+            <input id="rootPartTxt" type="text" size="15" readonly="True" style="border: 2px solid #a52a2a;">
+          </p>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <th id="c31" data-tooltip="Решение квадратных уравнений. Использовать только целые числа. Если в ответе j, то решений нет в действительных числах (R)">Квадратные уравнения (?)</th>
+      <th id="c32" data-tooltip="Сокращает Числитель и Знаменатель на их общий множитель. Избавляется от десятичных дробей (с десятичной точкой)">Сокращение дроби (?)</th>
+    </tr>
+    <tr>
+      <td id="c41">
+        <form>
+          <p>Коэффициенты уравнения:<br>
+            <input id="aTxt" type="text" size="3" maxlength="5" style="text-align: end" value="1">x<sup>2</sup>+
+            <input id="bTxt" type="text" size="3" maxlength="5" style="text-align: end" value="2">x+
+            <input id="cTxt" type="text" size="3" maxlength="5" style="text-align: end" value="-3">=0
+          </p>
+          <input type="button" value="Найти корни уравнения" style="background-color: #f6dd85; border: 1px solid #7f8182;" onclick="eel.transform_Xroots(aTxt.value,bTxt.value,cTxt.value)">
+          <p>
+            <textarea id="xTxt" type="text"></textarea>
+          </p>
+        </form>
+      </td>
+      <td id="c42">
+        <form>
+          <p>Числитель дроби:<br>
+            <input id="nuTxt" type="text" size="30" maxlength="10" value="90.5">
+          </p>
+          <p>Знаменатель дроби:<br>
+            <input id="denTxt" type="text" size="30" maxlength="10" value="25">
+          </p>
+          <p>
+            <input type="button" value="Сократить дробь" style="background-color: #f6dd85; border: 1px solid #7f8182;" onclick="eel.transform_Reduct(nuTxt.value,denTxt.value)">
+          </p>
+        </form>
+      </td>
+    </tr> 
+    </table>
+    <div class="footer">
+      <div class="copyright">МБОУ "Алябьевская СОШ" <b>2024 год</b></div>
+    </div>
+</body>
